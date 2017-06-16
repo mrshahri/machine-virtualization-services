@@ -1,0 +1,12 @@
+{
+  "machines": [
+    {
+      "deviceId": "Ultimaker01",
+      "probe": "http://10.5.55.116:10090/probe",
+      "operate": "http://10.5.55.116:10090",
+      "monitor": "http://10.5.55.116:10090/current"
+    }
+  ],
+
+  "authorizationUrl": "http://uaf131280.ddns.uark.edu:8084/cpms-subscription/validate"
+}
