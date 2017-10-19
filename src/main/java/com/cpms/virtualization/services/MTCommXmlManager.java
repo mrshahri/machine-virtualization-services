@@ -54,8 +54,8 @@ public class MTCommXmlManager {
         devOpElement.addAttribute(new Attribute("name", "Ultimaker2 3D Printer"));
 
         // get operation by XPATH
-        XPathContext context = new XPathContext("xmlns", "urn:mtconnect.org:MTConnectDevices:1.2");
-        Nodes deviceOperations = probeDoc.query("/xmlns:MTConnectDevices/xmlns:Devices/xmlns:Device[@id=\""
+        XPathContext context = new XPathContext("xmlns", "urn:MTComm.org:MTCommDevices:1.2");
+        Nodes deviceOperations = probeDoc.query("/xmlns:MTCommDevices/xmlns:Devices/xmlns:Device[@id=\""
                         + deviceOperation.getDeviceId() + "\"]/xmlns:Operations//xmlns:Operation[@id=\""
                         + deviceOperation.getOperationId() + "\"]",
                 context);
@@ -84,7 +84,7 @@ public class MTCommXmlManager {
 //            jobElement.appendChild("RESET");
         } else {
             // create all parameters
-            Nodes probeJobParamters = deviceOperationElement.query("/xmlns:MTConnectDevices" +
+            Nodes probeJobParamters = deviceOperationElement.query("/xmlns:MTCommDevices" +
                             "/xmlns:Devices/xmlns:Device[@id=\""
                             + deviceOperation.getDeviceId()
                             + "\"]/xmlns:Operations/xmlns:Operation[@id=\""
@@ -171,7 +171,7 @@ public class MTCommXmlManager {
         deviceElement.addAttribute(new Attribute("name", componentOperation.getDeviceId()));
         deviceElement.addAttribute(new Attribute("uuid", componentOperation.getUuid()));
 
-        XPathContext context = new XPathContext("xmlns", "urn:mtconnect.org:MTConnectDevices:1.2");
+        XPathContext context = new XPathContext("xmlns", "urn:MTComm.org:MTCommDevices:1.2");
         int sequence = 0;
 
         // get operation by XPATH
@@ -211,13 +211,13 @@ public class MTCommXmlManager {
 
     public Operations getOperationsFromProbe(String deviceId) throws IOException, ParsingException {
         Document probeDoc = getProbe(deviceId);
-        XPathContext context = new XPathContext("xmlns", "urn:mtconnect.org:MTConnectDevices:1.2");
-        Nodes deviceNodes = probeDoc.query("/xmlns:MTConnectDevices/xmlns:Devices/xmlns:Device[@id=\""
+        XPathContext context = new XPathContext("xmlns", "urn:MTComm.org:MTCommDevices:1.2");
+        Nodes deviceNodes = probeDoc.query("/xmlns:MTCommDevices/xmlns:Devices/xmlns:Device[@id=\""
                 + deviceId + "\"]", context);
         Element deviceNode = (Element) deviceNodes.get(0);
         String uuid = deviceNode.getAttributeValue("uuid");
 
-        Nodes deviceOperationNodes = probeDoc.query("/xmlns:MTConnectDevices/xmlns:Devices/xmlns:Device[@id=\""
+        Nodes deviceOperationNodes = probeDoc.query("/xmlns:MTCommDevices/xmlns:Devices/xmlns:Device[@id=\""
                 + deviceId + "\"]/xmlns:Operations//xmlns:Operation", context);
 
         List<DeviceOperation> deviceOperations = new ArrayList<>();
@@ -226,7 +226,7 @@ public class MTCommXmlManager {
             DeviceOperation deviceOperation = new DeviceOperation();
             deviceOperation.setDeviceId(deviceId);
             deviceOperation.setOperationId(deviceOperationElement.getAttributeValue("id"));
-            Nodes operationParameters = deviceOperationElement.query("/xmlns:MTConnectDevices"
+            Nodes operationParameters = deviceOperationElement.query("/xmlns:MTCommDevices"
                     + "/xmlns:Devices/xmlns:Device[@id=\"" + deviceId + "\"]/xmlns:Operations/xmlns:Operation[@id=\""
                     + deviceOperation.getOperationId() + "\"]/xmlns:Parameters//xmlns:Parameter", context);
             List<Parameter> parameters = new ArrayList<>();
@@ -254,12 +254,12 @@ public class MTCommXmlManager {
         }
 
         List<ComponentOperation> componentOperations = new ArrayList<>();
-        Nodes componentNodes = probeDoc.query("/xmlns:MTConnectDevices/xmlns:Devices/xmlns:Device[@id=\""
+        Nodes componentNodes = probeDoc.query("/xmlns:MTCommDevices/xmlns:Devices/xmlns:Device[@id=\""
                 + deviceId + "\"]/xmlns:Components/*", context);
         for (int i = 0; i < componentNodes.size(); ++i) {
             Element componentElement = (Element) componentNodes.get(i);
             Nodes componentOperationNodes = componentElement.query(
-                    "/xmlns:MTConnectDevices/xmlns:Devices/xmlns:Device[@id=\""
+                    "/xmlns:MTCommDevices/xmlns:Devices/xmlns:Device[@id=\""
                             + deviceId + "\"]/xmlns:Components/xmlns:"
                             + componentElement.getLocalName()
                             + "[@id=\"" + componentElement.getAttributeValue("id")
@@ -280,12 +280,12 @@ public class MTCommXmlManager {
                 componentOperations.add(componentOperation);
             }
 
-            Nodes subComponentNodes = componentElement.query("/xmlns:MTConnectDevices/xmlns:Devices"
+            Nodes subComponentNodes = componentElement.query("/xmlns:MTCommDevices/xmlns:Devices"
                     + "/xmlns:Device[@id=\"" + deviceId + "\"]/xmlns:Components/xmlns:"
                     + componentElement.getLocalName() + "/xmlns:Components/*", context);
             for (int j = 0; j < subComponentNodes.size(); ++j) {
                 Element subcomponentElement = (Element) subComponentNodes.get(j);
-                Nodes subComponentOperations = subcomponentElement.query("/xmlns:MTConnectDevices/xmlns:Devices"
+                Nodes subComponentOperations = subcomponentElement.query("/xmlns:MTCommDevices/xmlns:Devices"
                                 + "/xmlns:Device[@id=\""
                                 + deviceId
                                 + "\"]/xmlns:Components/xmlns:"
