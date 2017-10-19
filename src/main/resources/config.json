@@ -2,9 +2,19 @@
   "machines": [
     {
       "deviceId": "Ultimaker01",
-      "probe": "http://10.5.55.116:10090/probe",
-      "operate": "http://10.5.55.116:10090",
-      "monitor": "http://10.5.55.116:10090/current"
+      "probe": "http://uaf132943.ddns.uark.edu:10090/probe",
+      "operate": "http://uaf132943.ddns.uark.edu:10090",
+      "monitor": "http://uaf132943.ddns.uark.edu:10090/current"
+    }, {
+      "deviceId": "xcarve",
+      "probe": "http://uaf132943.ddns.uark.edu:10090/probe",
+      "operate": "http://uaf132943.ddns.uark.edu:10090",
+      "monitor": "http://uaf132943.ddns.uark.edu:10090/current"
+    }, {
+      "deviceId": "collab",
+      "probe": "http://uaf132943.ddns.uark.edu:10090/probe",
+      "operate": "http://uaf132943.ddns.uark.edu:10090",
+      "monitor": "http://uaf132943.ddns.uark.edu:10090/current"
     }
   ],
 
