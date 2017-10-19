@@ -11,6 +11,11 @@
       "operate": "http://uaf132943.ddns.uark.edu:1080",
       "monitor": "http://uaf132943.ddns.uark.edu:1080/current"
     }, {
+      "deviceId": "Uarm",
+      "probe": "http://uaf133118.ddns.uark.edu:1080/probe",
+      "operate": "http://uaf133118.ddns.uark.edu:1080",
+      "monitor": "http://uaf133118.ddns.uark.edu:1080/current"
+    }, {
       "deviceId": "collab",
       "probe": "http://uaf132943.ddns.uark.edu:10090/probe",
       "operate": "http://uaf132943.ddns.uark.edu:10090",
