@@ -36,7 +36,7 @@ public class MTCommXmlManager {
         headerElement.addAttribute(new Attribute("bufferSize", "10"));
         headerElement.addAttribute(new Attribute("instanceId", "1"));
         headerElement.addAttribute(new Attribute("creationTime", "2017-01-18T12:00:00"));
-        headerElement.addAttribute(new Attribute("sender", "Ultimaker2"));
+        headerElement.addAttribute(new Attribute("sender", "Cloud"));
         headerElement.addAttribute(new Attribute("version", "0.1"));
         headerElement.addAttribute(new Attribute("firstSequence", "9"));
         headerElement.addAttribute(new Attribute("lastSequence", "9"));
