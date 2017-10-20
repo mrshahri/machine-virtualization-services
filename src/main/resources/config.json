@@ -6,7 +6,7 @@
       "operate": "http://uaf132943.ddns.uark.edu:10090",
       "monitor": "http://uaf132943.ddns.uark.edu:10090/current"
     }, {
-      "deviceId": "xcarve",
+      "deviceId": "CNC",
       "probe": "http://uaf132943.ddns.uark.edu:1080/probe",
       "operate": "http://uaf132943.ddns.uark.edu:1080",
       "monitor": "http://uaf132943.ddns.uark.edu:1080/current"
