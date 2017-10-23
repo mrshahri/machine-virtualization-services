@@ -24,7 +24,7 @@
       "deviceId": "CoreXZ",
       "probe": "http://10.5.55.138:10090/probe",
       "operate": "http://10.5.55.138:10090",
-      "monitor": "http://10.5.55.138:10090/probe/current"
+      "monitor": "http://10.5.55.138:10090/current"
     }
   ],
 
