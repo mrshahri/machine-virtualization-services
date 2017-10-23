@@ -20,6 +20,11 @@
       "probe": "http://uaf132943.ddns.uark.edu:10090/probe",
       "operate": "http://uaf132943.ddns.uark.edu:10090",
       "monitor": "http://uaf132943.ddns.uark.edu:10090/current"
+    }, {
+      "deviceId": "CoreXZ",
+      "probe": "http://10.5.55.138:10090/probe",
+      "operate": "http://10.5.55.138:10090",
+      "monitor": "http://10.5.55.138:10090/probe/current"
     }
   ],
 
