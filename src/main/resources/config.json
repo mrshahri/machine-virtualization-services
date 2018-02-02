@@ -27,9 +27,9 @@
       "monitor": "http://10.5.55.138:10090/current"
     }, {
       "deviceId": "bukito",
-      "probe": "http://10.5.55.204:12345/probe",
-      "operate": "http://10.5.55.204:12345",
-      "monitor": "http://10.5.55.204:12345/current"
+      "probe": "http://10.5.53.81:12345/probe",
+      "operate": "http://10.5.53.81:12345",
+      "monitor": "http://10.5.53.81:12345/current"
     }
   ],
 
