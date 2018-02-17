@@ -23,8 +23,11 @@ public class Monitor {
     private String grabRotation = "NA";
 
     private String xPosition = "NA";
+    private String xTimeStamp = "NA";
     private String yPosition = "NA";
+    private String yTimeStamp = "NA";
     private String zPosition = "NA";
+    private String zTimeStamp = "NA";
 
     public Monitor() {
     }
@@ -109,6 +112,7 @@ public class Monitor {
                 context);
         if (xPositionNodes.size() > 0) {
             this.xPosition = xPositionNodes.get(0).getValue();
+            this.xTimeStamp = ((Element)xPositionNodes.get(0)).getAttributeValue("timestamp");
         }
 
         // y position
@@ -117,6 +121,7 @@ public class Monitor {
                 context);
         if (yPositionNodes.size() > 0) {
             this.yPosition = yPositionNodes.get(0).getValue();
+            this.yTimeStamp = ((Element)yPositionNodes.get(0)).getAttributeValue("timestamp");
         }
 
         //z position
@@ -125,6 +130,7 @@ public class Monitor {
                 context);
         if (zPositionNodes.size() > 0) {
             this.zPosition = zPositionNodes.get(0).getValue();
+            this.zTimeStamp = ((Element)zPositionNodes.get(0)).getAttributeValue("timestamp");
         }
     }
 
@@ -234,5 +240,29 @@ public class Monitor {
 
     public void setzPosition(String zPosition) {
         this.zPosition = zPosition;
+    }
+
+    public String getxTimeStamp() {
+        return xTimeStamp;
+    }
+
+    public void setxTimeStamp(String xTimeStamp) {
+        this.xTimeStamp = xTimeStamp;
+    }
+
+    public String getyTimeStamp() {
+        return yTimeStamp;
+    }
+
+    public void setyTimeStamp(String yTimeStamp) {
+        this.yTimeStamp = yTimeStamp;
+    }
+
+    public String getzTimeStamp() {
+        return zTimeStamp;
+    }
+
+    public void setzTimeStamp(String zTimeStamp) {
+        this.zTimeStamp = zTimeStamp;
     }
 }
