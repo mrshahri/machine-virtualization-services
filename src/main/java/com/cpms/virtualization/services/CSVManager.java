@@ -38,7 +38,7 @@ public class CSVManager {
     }
 
     private CSVPrinter createOrOpenCSVFile() throws IOException {
-        FileWriter out = new FileWriter(fileName);
+        FileWriter out = new FileWriter(fileName, true);
         CSVPrinter printer = CSVFormat.DEFAULT.withHeader(headers).print(out);
         return printer;
     }
