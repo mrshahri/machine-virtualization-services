@@ -8,6 +8,8 @@ import org.apache.http.HttpStatus;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ import java.util.TimerTask;
 @Singleton
 public class DataResource {
 
+    private static final int interval = 60000;
     private boolean csv_flush_on = true;
     private List<Record> records;
     private final Object lock = new Object();
@@ -50,15 +53,17 @@ public class DataResource {
         }
         Timer timer = new Timer();
         DataTimerTask dataTimerTask = new DataTimerTask();
-        timer.schedule(dataTimerTask, 5000, 5000);
+        timer.schedule(dataTimerTask, interval, interval);
     }
 
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getRecord() {
         return Response.ok("test").build();
     }
 
     @POST
+    @Produces(MediaType.APPLICATION_JSON)
     public Response appendRecord(String jsonString) {
         Gson gson = new Gson();
         Record record = gson.fromJson(jsonString, Record.class);
@@ -74,6 +79,7 @@ public class DataResource {
 
     @POST
     @Path("csv-switch")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response stopCSVFlush(String truthVal) {
         this.csv_flush_on = Boolean.valueOf(truthVal);
         return Response.ok("Stopped").build();
