@@ -50,7 +50,7 @@ public class DataResource {
         }
         Timer timer = new Timer();
         DataTimerTask dataTimerTask = new DataTimerTask();
-        timer.schedule(dataTimerTask, 60000, 60000);
+        timer.schedule(dataTimerTask, 5000, 5000);
     }
 
     @GET

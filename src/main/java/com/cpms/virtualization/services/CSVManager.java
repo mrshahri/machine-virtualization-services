@@ -37,22 +37,23 @@ public class CSVManager {
         throw new IllegalArgumentException("Wrong record identifier passed");
     }
 
-    private CSVPrinter createOrOpenCSVFile() throws IOException {
-        FileWriter out = new FileWriter(fileName, true);
-        CSVPrinter printer = CSVFormat.DEFAULT.withHeader(headers).print(out);
-        return printer;
-    }
-
-    void closePrinter(CSVPrinter printer) throws IOException {
-        ((FileWriter)printer.getOut()).close();
-        printer.close();
-    }
-
     void appendRecords(List<Record> records) throws IOException {
-        CSVPrinter printer = createOrOpenCSVFile();
+        FileWriter out;
+        CSVPrinter printer;
+
+        File f = new File(fileName);
+        if(f.exists() && !f.isDirectory()) {
+            // without headers
+            out = new FileWriter(fileName, true);
+            printer = CSVFormat.EXCEL.print(out);
+        } else {
+            out = new FileWriter(fileName, true);
+            printer = CSVFormat.EXCEL.withHeader(headers).print(out);
+        }
         for (Record record : records) {
             printer.printRecord(record.getStatus(), record.getReadingTime(), record.getRenderTime());
         }
-        closePrinter(printer);
+        out.close();
+        printer.close();
     }
 }
