@@ -65,10 +65,6 @@ public class DataResource {
     public Response appendRecord(String jsonString) {
         Gson gson = new Gson();
         Record record = gson.fromJson(jsonString, Record.class);
-//        FIXME: Home Testing hack - Timediff between UoA pcs and Home pcs
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-        record.setRenderTime(sdf.format(new Date()));
         if (csv_flush_on) {
             synchronized (lock) {
                 records.add(record);
