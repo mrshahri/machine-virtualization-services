@@ -12,10 +12,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by Rakib on 2/16/2018.
@@ -67,6 +65,9 @@ public class DataResource {
     public Response appendRecord(String jsonString) {
         Gson gson = new Gson();
         Record record = gson.fromJson(jsonString, Record.class);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+//        FIXME: Home Testing hack - Timediff between UoA pcs and Home pcs
+        record.setRenderTime(sdf.format(new Date()));
         if (csv_flush_on) {
             synchronized (lock) {
                 records.add(record);
