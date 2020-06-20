@@ -2,34 +2,34 @@
   "machines": [
     {
       "deviceId": "Ultimaker01",
-      "probe": "http://uaf132943.ddns.uark.edu:10090/probe",
-      "operate": "http://uaf132943.ddns.uark.edu:10090",
-      "monitor": "http://uaf132943.ddns.uark.edu:10090/current"
+      "probe": "http://10.5.53.35:10090/probe",
+      "operate": "http://10.5.53.35:10090",
+      "monitor": "http://10.5.53.35:10090/current"
     }, {
       "deviceId": "CNC",
-      "probe": "http://uaf132943.ddns.uark.edu:1080/probe",
-      "operate": "http://uaf132943.ddns.uark.edu:1080",
-      "monitor": "http://uaf132943.ddns.uark.edu:1080/current"
+      "probe": "http://10.5.52.114:1080/probe",
+      "operate": "http://10.5.52.114:1080",
+      "monitor": "http://10.5.52.114:1080/current"
     }, {
-      "deviceId": "Uarm",
-      "probe": "http://uaf133118.ddns.uark.edu:1080/probe",
-      "operate": "http://uaf133118.ddns.uark.edu:1080",
-      "monitor": "http://uaf133118.ddns.uark.edu:1080/current"
+      "deviceId": "Uarm1",
+      "probe": "http://10.5.52.121:1080/probe",
+      "operate": "http://10.5.52.121:1080",
+      "monitor": "http://10.5.52.121:1080/current"
     }, {
       "deviceId": "collab",
       "probe": "http://uaf132943.ddns.uark.edu:10090/probe",
       "operate": "http://uaf132943.ddns.uark.edu:10090",
       "monitor": "http://uaf132943.ddns.uark.edu:10090/current"
     }, {
-      "deviceId": "CoreXZ",
-      "probe": "http://10.5.55.138:10090/probe",
-      "operate": "http://10.5.55.138:10090",
-      "monitor": "http://10.5.55.138:10090/current"
-    }, {
       "deviceId": "bukito",
-      "probe": "http://10.5.52.164:10090/probe",
-      "operate": "http://10.5.52.164:10090",
-      "monitor": "http://10.5.52.164:10090/current"
+      "probe": "http://10.5.52.121:10090/probe",
+      "operate": "http://10.5.52.121:10090",
+      "monitor": "http://10.5.52.121:10090/current"
+    }, {
+      "deviceId": "Uarm",
+      "probe": "http://10.5.53.137:1080/probe",
+      "operate": "http://10.5.53.137:1080",
+      "monitor": "http://10.5.53.137:1080/current"
     }
   ],
 

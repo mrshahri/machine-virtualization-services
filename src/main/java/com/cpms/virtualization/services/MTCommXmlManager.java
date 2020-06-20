@@ -54,8 +54,15 @@ public class MTCommXmlManager {
         devOpElement.addAttribute(new Attribute("name", "Ultimaker2 3D Printer"));
 
         // get operation by XPATH
+/*
         XPathContext context = new XPathContext("xmlns", "urn:MTComm.org:MTCommDevices:1.2");
         Nodes deviceOperations = probeDoc.query("/xmlns:MTCommDevices/xmlns:Devices/xmlns:Device[@id=\""
+                        + deviceOperation.getDeviceId() + "\"]/xmlns:Operations//xmlns:Operation[@id=\""
+                        + deviceOperation.getOperationId() + "\"]",
+                context);
+*/
+        XPathContext context = new XPathContext("xmlns", "urn:mtconnect.org:MTConnectDevices:1.2");
+        Nodes deviceOperations = probeDoc.query("/xmlns:MTConnectDevices/xmlns:Devices/xmlns:Device[@id=\""
                         + deviceOperation.getDeviceId() + "\"]/xmlns:Operations//xmlns:Operation[@id=\""
                         + deviceOperation.getOperationId() + "\"]",
                 context);
@@ -84,7 +91,16 @@ public class MTCommXmlManager {
 //            jobElement.appendChild("RESET");
         } else {
             // create all parameters
+/*
             Nodes probeJobParamters = deviceOperationElement.query("/xmlns:MTCommDevices" +
+                            "/xmlns:Devices/xmlns:Device[@id=\""
+                            + deviceOperation.getDeviceId()
+                            + "\"]/xmlns:Operations/xmlns:Operation[@id=\""
+                            + deviceOperation.getOperationId()
+                            + "\"]/xmlns:Parameters//xmlns:Parameter",
+                    context);
+*/
+            Nodes probeJobParamters = deviceOperationElement.query("/xmlns:MTConnectDevices" +
                             "/xmlns:Devices/xmlns:Device[@id=\""
                             + deviceOperation.getDeviceId()
                             + "\"]/xmlns:Operations/xmlns:Operation[@id=\""

@@ -1,0 +1,37 @@
+{
+  "machines": [
+    {
+      "deviceId": "Ultimaker01",
+      "probe": "http://uaf132943.ddns.uark.edu:10090/probe",
+      "operate": "http://uaf132943.ddns.uark.edu:10090",
+      "monitor": "http://uaf132943.ddns.uark.edu:10090/current"
+    }, {
+      "deviceId": "CNC",
+      "probe": "http://uaf132943.ddns.uark.edu:1080/probe",
+      "operate": "http://uaf132943.ddns.uark.edu:1080",
+      "monitor": "http://uaf132943.ddns.uark.edu:1080/current"
+    }, {
+      "deviceId": "Uarm1",
+      "probe": "http://uaf133118.ddns.uark.edu:1080/probe",
+      "operate": "http://uaf133118.ddns.uark.edu:1080",
+      "monitor": "http://uaf133118.ddns.uark.edu:1080/current"
+    }, {
+      "deviceId": "collab",
+      "probe": "http://uaf132943.ddns.uark.edu:10090/probe",
+      "operate": "http://uaf132943.ddns.uark.edu:10090",
+      "monitor": "http://uaf132943.ddns.uark.edu:10090/current"
+    }, {
+      "deviceId": "bukito",
+      "probe": "http://10.5.52.46:10090/probe",
+      "operate": "http://10.5.52.46:10090",
+      "monitor": "http://10.5.52.46:10090/current"
+    }, {
+      "deviceId": "Uarm",
+      "probe": "http://10.5.52.67:1080/probe",
+      "operate": "http://10.5.52.67:1080",
+      "monitor": "http://10.5.52.67:1080/current"
+    }
+  ],
+
+  "authorizationUrl": "http://uaf131280.ddns.uark.edu:8084/cpms-subscription/validate"
+}
